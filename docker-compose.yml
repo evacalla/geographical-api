@@ -1,0 +1,27 @@
+version: '2'
+services:
+  postgres:
+    image: pgrouting/pgrouting:12-3.0-2.6.3
+    restart: always
+    ports:
+        - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: drowssap
+      POSTGRES_USER: postgres
+  springboot:
+    image: geographical-api:lastest
+    container_name: geographical-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=drowssap
+      - SPRING_DATA_INITIALIZER=TRUE
+      - SPRING_DATA_INITIALIZATION-MODE=always
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
