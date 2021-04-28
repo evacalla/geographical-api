@@ -1,7 +1,16 @@
 # geographical-api
-### Instalación 🔧
+
+### Pre-requisitos 📋
 
 ```
+Apache Maven 3.6.3
+```
+### Instalación 🔧
+
+Entra en la carpeta donde clone el proyecto y ejecutar los siguientes comandos:
+```
+mvn install
+./mvnw clean package
 docker build . -t geographical-api:lastest
 docker-compose up
 ```
