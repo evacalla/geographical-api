@@ -18,6 +18,7 @@ public class NodeToNodeResponseConverter implements Converter<Node, NodeResponse
         response.setLongitude(node.getLongitude());
         response.setCapacity(node.getCapacity());
         response.setSchedule(node.getSchedule());
+        response.setType(node.getType());
 
         return response;
     }

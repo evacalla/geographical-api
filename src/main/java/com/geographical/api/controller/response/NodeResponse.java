@@ -1,6 +1,8 @@
 package com.geographical.api.controller.response;
 
 
+import com.geographical.api.model.NodeType;
+
 public class NodeResponse {
 
     private Long id;
@@ -9,6 +11,7 @@ public class NodeResponse {
     private String address;
     private String schedule;
     private Integer capacity;
+    private NodeType type;
 
     public Long getId() {
         return id;
@@ -56,5 +59,13 @@ public class NodeResponse {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public NodeType getType() {
+        return type;
+    }
+
+    public void setType(NodeType type) {
+        this.type = type;
     }
 }
